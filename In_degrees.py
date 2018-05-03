@@ -76,5 +76,3 @@ def in_degree_distribution(digraph):
             new_dict[val] = 1
     return new_dict
 
-#a = make_complete_graph(4)
-#print (in_degree_distribution(a))
