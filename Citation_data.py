@@ -36,6 +36,17 @@ def load_graph(graph_url):
     return answer_graph
 
 citation_graph = load_graph(CITATION_URL)
+def avg_out_degrees(graph, num_nodes):
+    """
+    calculate average out-degrees to help recreate similar graphs in the future
+    """
+    out_degrees = 0
+    for key, val in citation_graph.items():
+        out_degrees += (len(val))
+    print (out_degrees / num_nodes)
+
+avg_out_degrees(citation_graph, 27770)
+
 in_degrees = ind.in_degree_distribution(citation_graph)
 
 def normalize_in_degrees(dict):

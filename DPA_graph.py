@@ -5,12 +5,17 @@ Created on Thu May  3 19:18:27 2018
 
 @author: hollyerickson
 
-Graph where for every ordered pair of distinct nodes (i,j), the modified algorithm adds the directed edge from i to j with probability p
+Create the DPA graph, calculate the in-degrees for each node and the x and y values.
 """
-import random
+#import random
 import In_degrees as ind
+import alg_dpa_trial as alg
 
-def er(num_nodes, prob):
+def dpa(num_nodes, num_edges):
+    """
+    Create graph where every new node added randomly connects to a set number of existing nodes.
+    """
+    """
     g = {}
     nodes = [num for num in range(num_nodes)]
     num_edges = prob *  num_nodes
@@ -27,17 +32,18 @@ def er(num_nodes, prob):
         g[num] = set(edge_list)
         
     return g
+    """
     
-er_graph = er(5000, 0.05)
-er_in_degrees = ind.in_degree_distribution(er_graph)
+dpa_graph = dpa(27770, 12)
+dpa_in_degrees = ind.in_degree_distribution(dpa_graph)
 
 def normalize_in_degrees(num_nodes, dict):
     """
-    Normalize in_degrees based off of number of nodes
+    Normalize in_degrees based off of 27770 nodes
     """
     y = [val / num_nodes for key, val in dict.items()]
     
     return y
 
-y = normalize_in_degrees(5000, er_in_degrees)
-x = [key for key in er_in_degrees.keys()]
+y = normalize_in_degrees(27770, dpa_in_degrees)
+x = [key for key in dpa_in_degrees.keys()]

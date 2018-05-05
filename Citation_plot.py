@@ -22,7 +22,7 @@ ax1.set_title('LogLog In-Degree Distribution for Citation Graph', weight=600)
 ax1.set_xlabel('Number of Citations')
 ax1.set_ylabel('Normalized Fraction of Nodes')
 
-plt.savefig('In-Degree Distribution Citation Graph', orientation='landscape')
+#plt.savefig('Images/In-Degree Distribution Citation Graph', orientation='landscape')
 plt.show()
 
 
