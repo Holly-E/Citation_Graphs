@@ -8,10 +8,19 @@ Created on Thu May  3 15:30:15 2018
 Code for loading citation data and calculating the in-degree distribution.
 """
 
-import urllib.request
+
 import In_degrees as ind
 
+# general imports
+#import urllib2 #urllib2 not available in Python3
+from urllib.request import urlopen
+
+
+###################################
+# Code for loading citation graph
+
 CITATION_URL = "http://storage.googleapis.com/codeskulptor-alg/alg_phys-cite.txt"
+
 
 def load_graph(graph_url):
     """
@@ -20,13 +29,15 @@ def load_graph(graph_url):
     
     Returns a dictionary that models a graph
     """
-    graph_file = urllib.request.urlopen(graph_url)
-    graph_text = [x.decode('utf8').strip() for x in graph_file.readlines()]
+    graph_file = urlopen(graph_url)
+    graph_text = graph_file.read().decode("utf-8")
+    graph_lines = graph_text.split('\n')
+    graph_lines = graph_lines[ : -1]
     
-    print ("Loaded graph with", len(graph_text), "nodes")
+    print ("Loaded graph with", len(graph_lines), "nodes")
     
     answer_graph = {}
-    for line in graph_text:
+    for line in graph_lines:
         neighbors = line.split(' ')
         node = int(neighbors[0])
         answer_graph[node] = set([])
@@ -36,6 +47,9 @@ def load_graph(graph_url):
     return answer_graph
 
 citation_graph = load_graph(CITATION_URL)
+
+
+
 def avg_out_degrees(graph, num_nodes):
     """
     calculate average out-degrees to help recreate similar graphs in the future
@@ -43,7 +57,7 @@ def avg_out_degrees(graph, num_nodes):
     out_degrees = 0
     for key, val in citation_graph.items():
         out_degrees += (len(val))
-    print (out_degrees / num_nodes)
+    #print (out_degrees / num_nodes)
 
 avg_out_degrees(citation_graph, 27770)
 

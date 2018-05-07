@@ -22,7 +22,7 @@ ax1.set_title('LogLog In-Degree Distribution for ER Graph', weight=600)
 ax1.set_xlabel('In-Degree')
 ax1.set_ylabel('Normalized Fraction of Nodes')
 
-plt.savefig('Images/In-Degree Distribution ER Graph', orientation='landscape')
+#plt.savefig('Images/ER Plot', orientation='landscape')
 plt.show()
 
 

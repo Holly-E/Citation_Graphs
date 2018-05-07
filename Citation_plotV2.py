@@ -8,9 +8,9 @@ Created on Thu May  3 15:30:15 2018
 Code for loading the loglog citation graph.
 """
 import matplotlib.pyplot as plt
+from Citation_dataV2 import x
+from Citation_dataV2 import y
 
-from Citation_data import x
-from Citation_data import y
 
 plt.style.use('seaborn-whitegrid')
 fig = plt.figure(figsize = (9, 5))
@@ -22,7 +22,7 @@ ax1.set_title('LogLog In-Degree Distribution for Citation Graph', weight=600)
 ax1.set_xlabel('Number of Citations')
 ax1.set_ylabel('Normalized Fraction of Nodes')
 
-#plt.savefig('Images/In-Degree Distribution Citation Graph', orientation='landscape')
+#plt.savefig('Images/Citation Plot', orientation='landscape')
 plt.show()
 
 
