@@ -11,30 +11,20 @@ Create the DPA graph, calculate the in-degrees for each node and the x and y val
 import In_degrees as ind
 import alg_dpa_trial as alg
 
-def dpa(num_nodes, num_edges):
+
+def dpa(num_nodes, num_new_nodes):
     """
     Create graph where every new node added randomly connects to a set number of existing nodes.
     """
-    """
-    g = {}
-    nodes = [num for num in range(num_nodes)]
-    num_edges = prob *  num_nodes
-    
-    for num in range(num_nodes):
-        #random.shuffle(nodes)
-        edges = 0
-        edge_list = []
-        while edges < num_edges:
-            edge = random.choice(nodes)
-            if edge != num:
-                edge_list.append(edge)
-            edges += 1
-        g[num] = set(edge_list)
-        
-    return g
-    """
-    
-dpa_graph = dpa(27770, 12)
+    dpa_graph = ind.make_complete_graph(num_new_nodes)
+    graph = alg.DPATrial(num_new_nodes)
+    for num in range(num_new_nodes, num_nodes):
+        new_node_neighbors = graph.run_trial(num_new_nodes)
+        dpa_graph[num] = new_node_neighbors
+    return dpa_graph
+
+ 
+dpa_graph = dpa(27770, 13)
 dpa_in_degrees = ind.in_degree_distribution(dpa_graph)
 
 def normalize_in_degrees(num_nodes, dict):

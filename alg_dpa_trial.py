@@ -32,7 +32,7 @@ class DPATrial:
         """
         self._num_nodes = num_nodes
         self._node_numbers = [node for node in range(num_nodes) for dummy_idx in range(num_nodes)]
-
+        
 
     def run_trial(self, num_nodes):
         """
@@ -54,7 +54,9 @@ class DPATrial:
         # update the list of node numbers so that each node number 
         # appears in the correct ratio
         self._node_numbers.append(self._num_nodes)
+        #extend adds to end of a list
         self._node_numbers.extend(list(new_node_neighbors))
+        #print(self._node_numbers)
         
         #update the number of nodes
         self._num_nodes += 1

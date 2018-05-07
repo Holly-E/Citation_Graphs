@@ -9,20 +9,20 @@ Code for loading the loglog citation graph.
 """
 import matplotlib.pyplot as plt
 
-from ER_Graph import x
-from ER_Graph import y
+from DPA_graph import x
+from DPA_graph import y
 
 plt.style.use('seaborn-whitegrid')
 fig = plt.figure(figsize = (9, 5))
 ax1 = fig.add_subplot(1, 1, 1)
 
-ax1.loglog(x, y, ls='None', marker='.', ms = 8, mec='black', mew=.5, c='orange')
+ax1.loglog(x, y, ls='None', marker='.', ms = 6, mec='black', mew=.5, c='red')
 
-ax1.set_title('LogLog In-Degree Distribution for ER Graph', weight=600)
+ax1.set_title('LogLog In-Degree Distribution for DPA Graph', weight=600)
 ax1.set_xlabel('In-Degree')
 ax1.set_ylabel('Normalized Fraction of Nodes')
 
-plt.savefig('Images/In-Degree Distribution ER Graph', orientation='landscape')
+plt.savefig('Images/DPA Graph', orientation='landscape')
 plt.show()
 
 
